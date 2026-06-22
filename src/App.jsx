@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// --- CUSTOM SVG ICONS ---
+// --- CUSTOM SVG ICONS (COMPLETELY RESTORED) ---
 const Icons = {
   Brain: () => (
     <svg className="w-8 h-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -87,7 +87,7 @@ const EXPERIENCES = [
 const EDUCATION = [
   {
     degree: 'B.Tech in Computer Science & Engineering (Artificial Intelligence)',
-    institution: 'Shri Shankaracharya Technical Campus, Bhilai',
+    institution: 'Shri Shankaracharya Technical Campus (SSTC), Bhilai',
     period: 'Graduation: 2023-2027',
     grade: 'CGPA: 7.55',
   },
@@ -120,8 +120,11 @@ const CERTIFICATIONS = [
   }
 ];
 
-// --- PLACEHOLDER GOOGLE DRIVE CV URL (CHANGE THIS TO YOUR ACTUAL GOOGLE DRIVE LINK) ---
-const GOOGLE_DRIVE_CV_URL = "https://docs.google.com/document/d/1SACCS0GuzAdtHmiKUKZJzwFkj05-BqGrV-ELo8fzvTI/edit?usp=sharing"
+// --- HIGHLY COMPATIBLE GOOGLE DOCS LINK INTEGRATION ---
+const GOOGLE_DOCS_ID = "1SACCS0GuzAdtHmiKUKZJzwFkj05-BqGrV-ELo8fzvTI";
+const GOOGLE_DOCS_PDF_DOWNLOAD_URL = `https://docs.google.com/document/d/${GOOGLE_DOCS_ID}/export?format=pdf`;
+const GOOGLE_DOCS_EMBED_PREVIEW_URL = `https://docs.google.com/document/d/${GOOGLE_DOCS_ID}/preview`;
+
 // --- FLOATING PARTICLES BACKGROUND ---
 const ParticlesBackground = () => {
   const particles = Array.from({ length: 25 });
@@ -270,7 +273,7 @@ const NeuralNetworkGraphic = () => {
 };
 
 // --- GLOBAL STATIC CONFIG ---
-const sections = ['home', 'about', 'skills', 'projects', 'experience', 'education', 'certifications', 'contact'];
+const sections = ['home', 'about', 'skills', 'projects', 'experience', 'education', 'certifications', 'resume', 'contact'];
 
 // --- COMPONENT IMPLEMENTATION ---
 export default function App() {
@@ -343,7 +346,7 @@ export default function App() {
 
           <div className="hidden md:block">
             <a 
-              href={GOOGLE_DRIVE_CV_URL} 
+              href={GOOGLE_DOCS_PDF_DOWNLOAD_URL} 
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-full text-sm font-semibold border border-cyan-400/40 hover:bg-cyan-500/10 transition duration-300 text-cyan-400"
@@ -379,7 +382,7 @@ export default function App() {
                 </button>
               ))}
               <a 
-                href={GOOGLE_DRIVE_CV_URL}
+                href={GOOGLE_DOCS_PDF_DOWNLOAD_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 text-center w-full py-3 rounded-lg border border-cyan-400/40 text-cyan-400 font-semibold"
@@ -424,7 +427,7 @@ export default function App() {
                 Explore Projects
               </button>
               <a 
-                href={GOOGLE_DRIVE_CV_URL}
+                href={GOOGLE_DOCS_PDF_DOWNLOAD_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3.5 rounded-lg bg-white/5 border border-white/15 hover:border-cyan-400/50 hover:bg-white/10 text-slate-100 font-semibold transition-all duration-300 text-center"
@@ -494,7 +497,7 @@ export default function App() {
       <section id="skills" className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-2 tracking-wide">Technical Competencies</h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-2 tracking-wide">Technical Competencies</h2> 
             <div className="w-16 h-1 bg-purple-500 mx-auto rounded-full" />
           </div>
 
@@ -686,6 +689,36 @@ export default function App() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7.8 INTERACTIVE RESUME VIEWER */}
+      <section id="resume" className="py-24 px-6 relative bg-gradient-to-b from-[#050816] via-[#0a0d28]/30 to-[#050816]">
+        <div className="max-w-5xl mx-auto z-10 relative">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-2 tracking-wide">Curriculum Vitae</h2>
+            <div className="w-16 h-1 bg-cyan-400 mx-auto rounded-full" />
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 md:p-6 flex flex-col items-center shadow-lg shadow-cyan-500/5">
+            {/* Embedded Google Docs Preview */}
+            <iframe 
+              src={GOOGLE_DOCS_EMBED_PREVIEW_URL} 
+              className="w-full h-[550px] md:h-[750px] rounded-lg border border-white/10 bg-white" 
+              title="Samriddhi Pandey Resume"
+            />
+            
+            <div className="mt-6">
+              <a 
+                href={GOOGLE_DOCS_PDF_DOWNLOAD_URL} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-600 hover:opacity-95 text-white font-bold tracking-wide shadow-md transition-all duration-300"
+              >
+                Download PDF Version
+              </a>
+            </div>
           </div>
         </div>
       </section>
