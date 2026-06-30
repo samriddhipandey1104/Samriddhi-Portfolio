@@ -60,19 +60,19 @@ const SKILLS = [
 
 const PROJECTS = [
   {
-    title: 'Data-Driven Exploratory Analyzer',
-    description: 'Engineered an automated Python script to preprocess raw CSV datasets, handling missing values, and generating comprehensive data profiling reports.',
-    tech: ['Python', 'Pandas', 'Matplotlib', 'Seaborn'],
-    github: 'https://github.com/samriddhipandey',
-    live: '#'
+            title: 'Automated Waste Sorting Assistant',
+            description: 'Developed a full-stack, AI-powered web application using Flask, Groq (Llama 4), and SQLite to automate and log municipal waste classification from image uploads, featuring real-time SQL database logging.',
+            tech: ['Flask', 'Python', 'Groq API', 'SQLite'],
+            github: 'https://github.com/samriddhipandey1104/Automated-waste-sorting-assistant',
+            live: 'https://github.com/samriddhipandey1104/Automated-waste-sorting-assistant'
+        },
+        {
+            title: 'AI Air Pencil & Virtual Canvas',
+            description: 'A real-time virtual drawing application utilizing computer vision to track 21 hand landmarks and enable gesture-controlled drawing.',
+            tech: ['Python', 'OpenCV', 'MediaPipe', 'NumPy'],
+            github: 'https://github.com/samriddhipandey1104/Air.Pencil',
+            live: 'https://github.com/samriddhipandey1104/Air.Pencil'
   },
-  {
-    title: 'NeuralVision Interface Architecture',
-    description: 'Designed a clean, glassmorphic portfolio landing page featuring scroll-triggered animation flows using Framer Motion.',
-    tech: ['React.js', 'Tailwind CSS', 'Framer Motion'],
-    github: 'https://github.com/samriddhipandey',
-    live: '#'
-  }
 ];
 
 const EXPERIENCES = [
